@@ -1,6 +1,6 @@
 #ifndef CALCULATORWINDOW_H
 #define CALCULATORWINDOW_H
-
+#include <QMessageBox>
 #include <QDebug>
 #include <QMainWindow>
 
