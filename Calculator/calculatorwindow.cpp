@@ -68,12 +68,39 @@ void CalculatorWindow::on_nineButton_clicked()
 void CalculatorWindow::on_plusButton_clicked()
 {
     QString operandCheck = ui->CalculatorTextBox->toPlainText();
-    ui->CalculatorTextBox->insertPlainText(" + ");
+    if(operandCheck.endsWith(" + ") || operandCheck.endsWith(" - "))
+    {
+        QMessageBox errorBox;
+        errorBox.warning(0, "Error", "Need another number." );
+    }
+    else if(operandCheck.isEmpty())
+    {
+        QMessageBox errorBox;
+        errorBox.warning(0, "Error", "Need to enter a number");
+    }
+    else
+    {
+        ui->CalculatorTextBox->insertPlainText(" + ");
+    }
 }
 
 void CalculatorWindow::on_minusButton_clicked()
 {
-    ui->CalculatorTextBox->insertPlainText(" - ");
+    QString operandCheck = ui->CalculatorTextBox->toPlainText();
+    if(operandCheck.endsWith(" + ") || operandCheck.endsWith(" - "))
+    {
+        QMessageBox errorBox;
+        errorBox.warning(0, "Error", "Need another number." );
+    }
+    else if(operandCheck.isEmpty())
+    {
+        QMessageBox errorBox;
+        errorBox.warning(0, "Error", "Need to enter a number");
+    }
+    else
+    {
+        ui->CalculatorTextBox->insertPlainText(" - ");
+    }
 }
 
 void CalculatorWindow::on_equalButton_clicked()
